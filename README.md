@@ -1,7 +1,7 @@
-Download the code.
-Open it in vscode.
-Run npm install (not mandatory)
-Compile and run the code using ng s -o
+# Download the code.
+# Open it in vscode.
+# Run npm install (not mandatory)
+# Compile and run the code using ng s -o
 
 # ProductFrontEnd
 
