@@ -1,0 +1,54 @@
+<div class="container">
+  <form id="insertProductForm" #f="ngForm" (ngSubmit)="submitClicked(f)" action="app.component.html">
+  <div class="form-group">
+    <div class="form-row">
+      <div class="col">
+        <input required ngModel name="productName" #productName="ngModel" id="productName" type="text" class="form-control" placeholder="Product Name">
+        <div class="alert alert-danger" *ngIf="productName.touched && !productName.valid">Product name is required!</div>
+      </div>
+      <div class="col">
+        <input required ngModel name="productDescription" #productDescription="ngModel" id="productDescription" type="text" class="form-control" placeholder="Product Description">
+        <div class="alert alert-danger" *ngIf="productDescription.touched && !productDescription.valid">Product description is required!</div>
+      </div>
+      <div class="col">
+        <input required ngModel name="productPrice" id="productPrice" #productPrice="ngModel" type="number" min="0" oninput="this.value=Math.abs(this.value)" class="form-control" placeholder="Product Price">
+        <div class="alert alert-danger" *ngIf="productPrice.touched && (productPrice.value<=0)">Product price is incorrect!</div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Add To Inventory</button>
+      </div>
+    </div>
+    </div>
+</form>
+
+<!--Table to display the inventory-->
+<form id="displayProductForm" #f1="ngForm" action="app.component.html">
+  <div class="form-group" style="overflow:auto; height: 400px;">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th style="text-align: center;" colspan="2">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of allProducts">
+          <td>{{p.ProductId}}</td>
+          <td>{{p.ProductName}}</td>
+          <td>{{p.ProductPrice}}</td>
+          <td><div style="overflow-x:auto; width: 150px;">{{p.ProductDescription}}</div></td>
+          <td><button (click)="DisplayProduct(p)" class="btn btn-success">Display</button></td>
+          <td><button (click)="RemoveProduct(p)" class="btn btn-danger">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</form>
+
+</div>
+
