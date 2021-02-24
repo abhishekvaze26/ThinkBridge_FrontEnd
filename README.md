@@ -1,3 +1,8 @@
+Download the code.
+Open it in vscode.
+Run npm install (not mandatory)
+Compile and run the code using ng s -o
+
 # ProductFrontEnd
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
